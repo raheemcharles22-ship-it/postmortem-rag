@@ -1,0 +1,9 @@
+# built binary
+/server
+*.exe
+
+# secrets
+.env
+
+# go
+/vendor/
