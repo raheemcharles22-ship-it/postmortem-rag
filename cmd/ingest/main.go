@@ -1,5 +1,5 @@
 // cmd/server/main.go
-package main
+package ingest
 
 import (
 	"context"
@@ -85,8 +85,8 @@ func ingestFile(ctx context.Context, path string, embedder rag.Embedder, store r
 		return 0, fmt.Errorf("reading file: %w", err)
 	}
 	source := filepath.Base(path)
-
-	chunks, err := rag.ChunkText(string(data), source, size, overlap)
+	text := rag.StripFrontmatter(string(data))
+	chunks, err := rag.ChunkText(text, source, size, overlap)
 	if err != nil {
 		return 0, fmt.Errorf("chunking: %w", err)
 	}

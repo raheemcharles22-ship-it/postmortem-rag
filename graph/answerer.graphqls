@@ -1,0 +1,9 @@
+type Answer {
+  text: String!
+  refused: Boolean!
+  citations: [String!]!
+}
+
+type Query {
+  ask(question: String!, k: Int): Answer!
+}
