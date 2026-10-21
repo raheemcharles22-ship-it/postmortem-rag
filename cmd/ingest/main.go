@@ -1,5 +1,5 @@
 // cmd/server/main.go
-package ingest
+package main
 
 import (
 	"context"
