@@ -13,7 +13,15 @@ spec:
       containers:
         - name: app
           image: postmortem-rag:local
-          imagePullPolicy: IfNotPresent   # <- REQUIRED for a locally-loaded image
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
           env:
             - name: DB_PASSWORD
               valueFrom:
