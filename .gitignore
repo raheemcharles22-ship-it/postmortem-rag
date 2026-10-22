@@ -9,3 +9,5 @@
 /vendor/
 
 /corpus/
+
+/deploy/terraform/terraform.tfvars
